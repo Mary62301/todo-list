@@ -2,12 +2,13 @@ require './constants.rb'
 
 print 'Введите название задачи: '
 name = gets.strip
-tasks = ['some task']
+tasks = File.readlines("data.txt", chomp: true) 
 
 
 if name !='' && name.size < NAME_MAX_SIZE && name.size > NAME_MIN_SIZE
     tasks << name 
-    tasks.each {|task| puts task}
+    File.write("data.txt", tasks.join("\n"))
+    tasks.each_with_index {|task, index| puts "#{index + 1}. #{task}"}
 else
     puts 'Мы не можем добавить в список задач: '
     if name == ''
