@@ -1,16 +1,17 @@
-print "Введите название задачи: "
+require './constants.rb'
+
+print 'Введите название задачи: '
 name = gets.strip
 tasks = ['some task']
-NAME_MAX_SIZE = 10
-NAME_MIN_SIZE = 3
+
 
 if name !='' && name.size < NAME_MAX_SIZE && name.size > NAME_MIN_SIZE
     tasks << name 
     tasks.each {|task| puts task}
 else
-    puts "Мы не можем добавить в список задач: "
+    puts 'Мы не можем добавить в список задач: '
     if name == ''
-      puts "Пустое название."
+      puts 'Пустое название.'
     end 
     if name.size >= NAME_MAX_SIZE
       puts "Название превышает или равен #{NAME_MAX_SIZE} символам."
